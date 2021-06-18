@@ -10,6 +10,9 @@ class MainHeader extends StatelessWidget implements PreferredSizeWidget {
   MainHeader({required this.title, this.actions});
 
   @override
+  get preferredSize => Size.fromHeight(height);
+
+  @override
   Widget build(BuildContext context) {
     return AppBar(
       title: Text(
@@ -21,7 +24,4 @@ class MainHeader extends StatelessWidget implements PreferredSizeWidget {
       elevation: 0,
     );
   }
-
-  @override
-  get preferredSize => Size.fromHeight(height);
 }
