@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:loas/icon/custom_icons.dart';
 
-class MyBottomSheet extends StatelessWidget {
+class SelectLibraryBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(

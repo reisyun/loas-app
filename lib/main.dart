@@ -2,12 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:loas/icon/custom_icons.dart';
 import 'package:loas/widget/header/main_header.dart';
 import 'package:loas/widget/navigation/bottom_nav.dart';
-import 'package:loas/widget/navigation/bottom_sheet.dart';
+import 'package:loas/widget/bottom_sheet/select_libary_bottom_sheet.dart';
 import 'package:loas/widget/list/library_list.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  void _showSelectLibraryBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: Color(0xFF1C2129),
+      barrierColor: Colors.white.withOpacity(0.12),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: const Radius.circular(24.0),
+        ),
+      ),
+      builder: (context) {
+        return SelectLibraryBottomSheet();
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -26,20 +42,7 @@ class MyApp extends StatelessWidget {
         floatingActionButton: Builder(
           builder: (context) => FloatingActionButton(
             child: Icon(Icons.add),
-            onPressed: () {
-              showModalBottomSheet(
-                context: context,
-                backgroundColor: Color(0xFF1C2129),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.vertical(
-                    top: const Radius.circular(24.0),
-                  ),
-                ),
-                builder: (context) {
-                  return MyBottomSheet();
-                },
-              );
-            },
+            onPressed: () => _showSelectLibraryBottomSheet(context),
           ),
         ),
         appBar: MainHeader(
